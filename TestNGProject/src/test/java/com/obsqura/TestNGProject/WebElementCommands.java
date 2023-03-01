@@ -77,7 +77,8 @@ public class WebElementCommands extends Base {
 		Point locationTexboxValueB=TexboxValueB.getLocation();
 		int TexboxValueBX=locationTexboxValueB.getX();
 		int TexboxValueBY=locationTexboxValueB.getY();
-		assertTrue(getTotalButtonY > TexboxValueBY,"Get Total Button is not alligned below Texbox value B");
+		boolean greaterComparison=(getTotalButtonY>TexboxValueBY);
+		assertTrue(greaterComparison,"Get Total Button is not alligned below Texbox value B");
 	}
 	@Test
 	public void fontColor()
