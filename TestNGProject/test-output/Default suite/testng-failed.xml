@@ -5,8 +5,8 @@
     <classes>
       <class name="com.obsqura.TestNGProject.WebElementCommands">
         <methods>
+          <include name="twoInputField"/>
           <include name="initialiseBrowser"/>
-          <include name="sendKeys"/>
           <include name="afterTest"/>
         </methods>
       </class> <!-- com.obsqura.TestNGProject.WebElementCommands -->
