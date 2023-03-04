@@ -71,11 +71,9 @@ public class WebElementCommands extends Base {
 	{
 		WebElement getTotalButton=driver.findElement(By.cssSelector("button#button-two"));
 		Point locationGetTotalButton=getTotalButton.getLocation();
-		int getTotalButtonX=locationGetTotalButton.getX();
 		int getTotalButtonY=locationGetTotalButton.getY();
 		WebElement TexboxValueB=driver.findElement(By.cssSelector("input#value-b"));
 		Point locationTexboxValueB=TexboxValueB.getLocation();
-		int TexboxValueBX=locationTexboxValueB.getX();
 		int TexboxValueBY=locationTexboxValueB.getY();
 		boolean greaterComparison=(getTotalButtonY>TexboxValueBY);
 		assertTrue(greaterComparison,"Get Total Button is not alligned below Texbox value B");
