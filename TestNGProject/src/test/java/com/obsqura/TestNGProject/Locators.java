@@ -97,7 +97,105 @@ public class Locators extends Base{
 		driver.findElement(By.xpath("//input[@id='nav-search-submit-button']"));
 		driver.findElement(By.xpath("//a[@id='nav-hamburger-menu']"));
 		driver.findElement(By.xpath("//a[@id='nav-logo-sprites']"));
-		driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']"));	
+		driver.findElement(By.xpath("//span[@id='nav-link-accountList-nav-line-1']"));			
+	}
+	@Test
+	public void locatorsByXpathContains() {
+		driver.findElement(By.xpath("//div[contains(@class,'my-2')]"));
+		driver.findElement(By.xpath("//input[contains(@id,'value-a')]"));
+		driver.findElement(By.xpath("//*[contains(@class,'form-control')]"));
+		driver.findElement(By.xpath("//button[contains(@id,'button-two')]"));
+		driver.findElement(By.xpath("//input[contains(@id,'value-b')]"));
+	}
+	@Test
+	public void locatorsByXpathOr() {
+		driver.findElement(By.xpath("//div[@class='my-2' or @id='message-one']"));
+		driver.findElement(By.xpath("//a[@href='check-box-demo.php' or text()='Checkbox Demo']"));
+		driver.navigate().to("https://selenium.obsqurazone.com/simple-form-demo.php");
+		driver.findElement(By.xpath("//button[@id='button-two' or  text()='Get Total']"));
+		driver.findElement(By.xpath("//button[@id='button-one' or  text()='Show Message']"));
+		driver.findElement(By.xpath("//label[@for='inputEmail4' or  text()='Enter Message']"));
+	}
+	@Test
+	public void locatorsByXpathAnd() {
+		driver.findElement(By.xpath("//div[@class='my-2' and @id='message-one']"));
+		driver.findElement(By.xpath("//a[@href='check-box-demo.php' and text()='Checkbox Demo']"));
+		driver.navigate().to("https://selenium.obsqurazone.com/simple-form-demo.php");
+		driver.findElement(By.xpath("//button[@id='button-two' and  text()='Get Total']"));
+		driver.findElement(By.xpath("//button[@id='button-one' and  text()='Show Message']"));
+		driver.findElement(By.xpath("//label[@for='inputEmail4' and  text()='Enter Message']"));
+	}
+	@Test
+	public void locatorsByStartsWith() {
+		driver.findElement(By.xpath("//div[starts-with(@id,'message-one')]"));
+		driver.findElement(By.xpath("//a[starts-with(@href,'check-box-demo.php')]"));
+		driver.navigate().to("https://selenium.obsqurazone.com/simple-form-demo.php");
+		driver.findElement(By.xpath("//button[starts-with(@id,'button-one')]"));
+		driver.findElement(By.xpath("//button[starts-with(@id,'button-two')]"));
+		driver.findElement(By.xpath("//label[starts-with(@for,'inputEmail4')]"));
+	}
+	@Test
+	public void locatorsByXpathParent() {
+		driver.findElement(By.xpath("//label[@for='inputEmail4']//parent::div[@class='form-group']"));
+		driver.findElement(By.xpath("//input[@id='value-a']//parent::div[@class='form-group']"));
+		driver.findElement(By.xpath("//input[@id='value-b']//parent::div[@class='form-group']"));
+		driver.findElement(By.xpath("//a[@href='simple-form-demo.php']//parent::li[@class='list-group-item']"));
+	}
+	@Test
+	public void locatorsByXpathChild() {
+		driver.findElement(By.xpath("//div[@class='card']//child::div[contains(text(),'Menu')]"));
+		driver.findElement(By.xpath("//div[@class='form-group']//child::label[@for='inputEmail4']"));
+		driver.findElement(By.xpath("//div[@class='form-group']//child::input[@id='value-a']"));
+		driver.findElement(By.xpath("//div[@class='form-group']//child::input[@id='value-b']"));
+		driver.findElement(By.xpath("//li[@class='list-group-item']//child::a[@href='simple-form-demo.php']"));
+	}
+	@Test
+	public void locatorsByXpathFollowing() {
+		driver.findElement(By.xpath("//button[@id='button-one']//following::div[@id='message-one']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//following::form"));
+		driver.findElement(By.xpath("//button[@id='button-one']//following::div[@id='message-one']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//following::div[@id='message-two']"));
+		driver.findElement(By.xpath("//button[@id='button-two']//following::div[@id='message-two']"));
+	}
+	@Test
+	public void locatorsByXpathAncestor() {
+		driver.findElement(By.xpath("//button[@id='button-one']//ancestor::form"));
+		driver.findElement(By.xpath("//button[@id='button-one']//ancestor::div[@class='container page']"));
+		driver.findElement(By.xpath("//button[@id='button-two']//ancestor::form"));
+		driver.findElement(By.xpath("//button[@id='button-two']//ancestor::div[@class='container page']"));
+		driver.findElement(By.xpath("//button[@id='button-two']//ancestor::section"));
+	}
+	@Test
+	public void locatorsByXpathPreceding() {
+		driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='header-top']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='mb-sec']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='form-group']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='example my-3']"));
+		driver.findElement(By.xpath("//button[@id='button-two']//preceding::form[@method='POST']"));
 	}
 	
+	@Test
+	public void locatorsByXpathSibling() {
+		driver.findElement(By.xpath("//label[@for='inputEmail4']//following-sibling::input[@id='single-input-field']"));
+		driver.findElement(By.xpath("//label[text()='Enter value A']//following-sibling::input[@id='value-a']"));
+		driver.findElement(By.xpath("//label[text()='Enter value B']//following-sibling::input[@id='value-b']"));
+		driver.findElement(By.xpath("//button[@id='button-one']//following-sibling::div[@id='message-one']"));
+		driver.findElement(By.xpath("//button[@id='button-two']//following-sibling::div[@id='message-two']"));	
+	}
+	@Test
+	public void locatorsByXpathDescendant() {
+		driver.findElement(By.xpath("//div[@class='container page']//descendant::div[@class='row']"));
+		driver.findElement(By.xpath("//div[@class='header-top']//descendant::div[@class='container']"));
+		driver.findElement(By.xpath("//div[@class='header-top']//descendant::div[@class='row']"));
+		driver.findElement(By.xpath("//section[@class='clearfix']//descendant::div[@class='container page']"));
+		driver.findElement(By.xpath("//div[@class='mb-sec']//descendant::div[@class='container']"));	
+	}
+	@Test
+	public void locatorsByXpathSelf() {
+		driver.findElement(By.xpath("//button[@id='button-one']//self::button"));
+		driver.findElement(By.xpath("//input[@id='single-input-field']//self::input"));
+		driver.findElement(By.xpath("//input[@id='value-b']//self::input"));
+		driver.findElement(By.xpath("//input[@id='value-a']//self::input"));
+		driver.findElement(By.xpath("//button[@id='button-two']//self::button"));
+	}
 }
